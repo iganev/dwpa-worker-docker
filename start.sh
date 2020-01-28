@@ -6,7 +6,7 @@ export PATH=/root/bin/JohnTheRipper/run:$PATH
 
 SCREEN_NAME="dwpa_worker"
 
-screen -S $SCREEN_NAME -dm bash -c "/root/bin/dwpa/help_crack.py"
+screen -S $SCREEN_NAME -dm bash -c "cd /root/bin/dwpa && /root/bin/dwpa/help_crack.py"
 
 while screen -list | grep -q $SCREEN_NAME
 do

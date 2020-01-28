@@ -37,6 +37,8 @@ docker container run --detach --name dwpa_worker dwpa_worker:latest
 
 ```
 
+Adding `-e OMP_NUM_THREADS=4` can limit the CPU usage of JtR.
+
 To make sure your docker container is doing well run:
 
 ```

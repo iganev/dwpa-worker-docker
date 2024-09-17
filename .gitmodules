@@ -1,0 +1,3 @@
+[submodule "dwpa"]
+	path = dwpa
+	url = https://github.com/iganev/dwpa.git

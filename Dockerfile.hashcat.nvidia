@@ -1,0 +1,7 @@
+FROM javydekoning/hashcat:latest
+
+RUN apt-get update && apt-get install python3
+
+COPY dwpa/help_crack /help_crack
+
+WORKDIR /help_crack

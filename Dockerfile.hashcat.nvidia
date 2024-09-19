@@ -1,7 +1,17 @@
 FROM javydekoning/hashcat:latest
 
-RUN apt-get update && apt-get install python3
+RUN apt-get update && apt-get install -y python3
 
 COPY dwpa/help_crack /help_crack
 
 WORKDIR /help_crack
+
+# Download dictionaries in dict subfolder (volume)
+RUN sed -i 's#gzdictname = #gzdictname = "dict/" + #g' help_crack.py
+
+# Store runtime data in data subfolder (volume)
+RUN sed -i 's#: "help_crack.#: "data/help_crack.#g' help_crack.py
+
+VOLUME [ "/help_crack/dict", "/help_crack/data", "/help_crack/rules" ]
+
+CMD [ "./help_crack.py" ]

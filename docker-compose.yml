@@ -1,0 +1,24 @@
+services:
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.hashcat.nvidia
+    image: dwpa-worker
+    restart: always
+    privileged: true
+    volumes:
+      - ./rules:/help_crack/rules
+      - data:/help_crack/data
+      - dict:/help_crack/dict
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+volumes:
+  data:
+  dict:

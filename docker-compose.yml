@@ -8,17 +8,15 @@ services:
     privileged: true
     volumes:
       - ./rules:/help_crack/rules
-      - data:/help_crack/data
-      - dict:/help_crack/dict
+      - runtime:/help_crack/runtime
     env_file:
       - .env
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
 volumes:
-  data:
-  dict:
+  runtime:

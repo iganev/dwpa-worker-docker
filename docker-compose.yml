@@ -7,16 +7,16 @@ services:
     restart: always
     privileged: true
     volumes:
-      - ./rules:/help_crack/rules
-      - runtime:/help_crack/runtime
+      - ./rules:/srv/app/rules
+      - runtime:/srv/app/runtime
     env_file:
       - .env
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: all
-    #           capabilities: [gpu]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
 volumes:
   runtime:

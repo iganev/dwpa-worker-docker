@@ -1,20 +1,12 @@
 FROM javydekoning/hashcat:latest
 
-RUN apt-get update && apt-get install -y python3 wget
+RUN apt-get update && apt-get install -y python3 wget screen
 
-WORKDIR /help_crack
-
-#COPY dwpa/help_crack /help_crack
-
-# Download dictionaries in dict subfolder (volume)
-#RUN sed -i 's#gzdictname = #gzdictname = "dict/" + #g' help_crack.py
-
-# Store runtime data in data subfolder (volume)
-#RUN sed -i 's#: "help_crack.#: "data/help_crack.#g' help_crack.py
+WORKDIR /srv/app
 
 COPY --chown=root:root .docker/entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
 
-VOLUME [ "/help_crack/runtime", "/help_crack/rules" ]
+VOLUME [ "/srv/app/runtime", "/srv/app/rules" ]
 
 CMD [ "./entrypoint.sh" ]

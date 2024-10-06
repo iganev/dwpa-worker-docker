@@ -1,2 +1,5 @@
 /rules/*
+/dicts/*
+
 !/rules/.keep
+!/dicts/.keep

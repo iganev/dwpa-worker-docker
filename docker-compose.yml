@@ -6,7 +6,10 @@ services:
     image: dwpa-worker
     restart: always
     privileged: true
+    init: true
+    tty: true
     volumes:
+      - ./dicts:/srv/app/dicts
       - ./rules:/srv/app/rules
       - runtime:/srv/app/runtime
     env_file:

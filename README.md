@@ -2,9 +2,15 @@
 
 Docker container companion to [dwpa-web-docker](https://github.com/iganev/dwpa-web-docker).  
 
-Executes `help_crack.py` in a CUDA-enabled container to utilize GPU for auditing.  
+Executes `help_crack.py` in a CUDA-enabled container to utilize available Nvidia GPUs for auditing.  
 
 ## Setup
+
+Make sure you have properly setup and running instance of [dwpa-web-docker](https://github.com/iganev/dwpa-web-docker) or alternatively you can use the worker to contribute to the public/original instance (default behavior).  
+
+Make sure you have properly setup nvidia drivers and nvidia-docker container environment.  
+
+Edit the `.env` file to reflect your setup.  
 
 ## Running
 
